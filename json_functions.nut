@@ -17,7 +17,7 @@ function json_encode( table ){
 		json += "}"; 
 		return json;
 	}else{
-		return false;
+		return null;
 	}
 }
 

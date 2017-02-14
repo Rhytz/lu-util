@@ -1,7 +1,7 @@
 RegisteredEventCalls <- {};
 
 function addEvent(event){
-	if(RegisteredEventCalls.rawin(event)){
+	if(!RegisteredEventCalls.rawin(event)){
 		RegisteredEventCalls[event] <- [];
 		return 1;
 	}
@@ -28,7 +28,7 @@ function triggerEvent(event, ...){
 function addEventHandler(path, event, func){
 	assert(typeof(path) == "string" && typeof(event) == "string" && typeof(func) == "string");
 	local funcdata = { path = path, func = func };
-	if(RegisteredEventCalls.rawin(event)){
+	if(RegisteredEventCalls.rawin(event)){		
 		local match = null;
 		foreach(RegisteredEventCall in RegisteredEventCalls[event]){
 			if(RegisteredEventCall.path == path && RegisteredEventCall.func){
@@ -36,7 +36,7 @@ function addEventHandler(path, event, func){
 				break;
 			}
 		}
-		if(!match){
+		if(!match){			
 			RegisteredEventCalls[event].push(funcdata);
 			return 1;
 		}

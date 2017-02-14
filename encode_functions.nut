@@ -17,7 +17,7 @@ function postdata_encode( table ) {
 		
 		return postdata;
 	}else{
-		return false;
+		return null;
 	}
 }
 
